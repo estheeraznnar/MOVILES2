@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:ems="10"
-        android:hint="Introduce tu nombre"
+        android:hint="Introduce tu edad"
         android:gravity="center"
         android:inputType="number"
         />
@@ -52,7 +52,7 @@
         android:id="@+id/texto_respuesta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Si fueras un perro tendrias 47 años"
+        tools:text="Si fueras un perro tendrias  años"
         android:textSize="16dp"
         android:padding="24dp"
         android:textStyle="bold"
