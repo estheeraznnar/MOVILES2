@@ -1,6 +1,7 @@
 package org.iesch.superheroes
 
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.widget.RatingBar
 import android.widget.TextView
@@ -41,7 +42,9 @@ class DetailActivity : AppCompatActivity() {
             intent.getParcelableExtra<SuperHeroe>("superHero")
         }
 
-        val bitmap = bundle.getParcelable<Bitmap>("foto_heroe")
+        //val bitmap = bundle.getParcelable<Bitmap>("foto_heroe")
+        val bitmapDirectory = bundle.getString("path_heroe")
+        val bitmap = BitmapFactory.decodeFile(bitmapDirectory)
 
         //rellenamos los campos
         /*findViewById<TextView>(R.id.heroeName).text = superHeroName

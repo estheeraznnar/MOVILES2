@@ -2,7 +2,9 @@ package org.iesch.superheroes
 
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.os.Environment
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -11,11 +13,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.result.registerForActivityResult
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import org.iesch.superheroes.databinding.ActivityMainBinding
 import org.iesch.superheroes.model.SuperHeroe
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,12 +29,25 @@ class MainActivity : AppCompatActivity() {
     //creamos una variable que va a manejar el resultado de haber echo la foto
     private lateinit var heroImage: ImageView
     private var heroBitmap: Bitmap? = null
-    private val getContent = registerForActivityResult( ActivityResultContracts.TakePicturePreview()){
+    //HAY QUE CAMBIAR EL Takepicturesprevious por take picture
+    /*private val getContent = registerForActivityResult( ActivityResultContracts.TakePicturePreview()){
         //Esto nos va a devolver un objeto de tipo bitmap
         bitmap ->
             heroBitmap = bitmap
             heroImage.setImageBitmap(heroBitmap)
+    }*/
+    private var picturesPath = ""
+    private val getContent = registerForActivityResult( ActivityResultContracts.TakePicture()){
+        //ahora en lugar de un bitmap nos va a devolver un buleano si la foro es exitosa o no
+        success ->
+            if (success && picturesPath.isNotEmpty()){
+                //cualquier imagen en el direcrtorio la podemos convertir a bitmap
+                heroBitmap = BitmapFactory.decodeFile(picturesPath)
+                heroImage.setImageBitmap(heroBitmap)
+            }
     }
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,8 +82,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun abrirCamara() {
-        //abrimaos la camara llamando al getcontent launch
-        getContent.launch(null)
+        val imagefile = crearImageFile()
+
+        //ya tenemos el archivo tipo file pero necesitamos el uri
+        //sera a traves del file provider
+        //lo que hace es compartir el file con otras app de forma segura
+
+        val uri = FileProvider.getUriForFile(this, "${applicationContext.packageName}.provider", imagefile)
+        getContent.launch(uri)
+    }
+
+    //Esta funcion crea un file y de ese file recuperamos la uri
+    fun crearImageFile() : File{
+        val fileName = "superhero_image"
+        //esto sera el directorio donde vamos a almacenar la imagen. por defecto es DIRECTOREPICTURES
+        val fileDirectory = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        //creamos nuestro file aqui nos pide el nombre, el formato y el directorio
+        val imageFile = File.createTempFile(fileName, ".jpg", fileDirectory)
+        //ahora ya podemos guardar la ruta de la imagen en la variable global
+        picturesPath = imageFile.absolutePath
+        return imageFile
     }
 
     /*fun irADetailActivity(superHeroeName: String, alterEgo: String, bio: String, power: Float) {
@@ -91,7 +126,7 @@ class MainActivity : AppCompatActivity() {
         //intent.putExtra("power",power)
         intent.putExtra( "superHero", superHeroe )
         // añadp el objeto bitmap el intent
-        intent.putExtra("foto_heroe", heroImage.drawable.toBitmap() )
+        intent.putExtra("path_heroe", picturesPath)
         // De esta manera, todos estos datos se enviarán al DetailActivity
         // Iniciamos la nueva actividad
         startActivity(intent)
