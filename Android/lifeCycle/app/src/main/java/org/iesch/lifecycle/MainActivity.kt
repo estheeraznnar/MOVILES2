@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         boton.setOnClickListener {
             val intent = Intent(this, OtraActivity::class.java)
             startActivity(intent)
-            finish()
+
         }
 
         Log.i("CICLODEVIDA", "entramos en el metodo Main()")

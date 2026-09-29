@@ -26,7 +26,7 @@ class OtraActivity : AppCompatActivity() {
         boton.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-            finish()
+
         }
     }
 
