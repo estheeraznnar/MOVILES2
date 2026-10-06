@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E8FAF9"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingStart="34dp"
+    android:paddingEnd="34dp">
+
+    <ImageView
+        android:id="@+id/imgLogin"
+        android:layout_width="190dp"
+        android:layout_height="165dp"
+        android:layout_marginTop="42dp"
+        android:contentDescription="@string/login_image_description"
+        android:scaleType="fitCenter"
+        android:src="@drawable/login_banner" />
+
+    <TextView
+        android:id="@+id/tvLoginTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/login_title"
+        android:textColor="#151515"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <!-- Campo de usuario -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/bg_login_field"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="13dp"
+        android:paddingEnd="13dp">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_user" />
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="11dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:hint="@string/name_hint"
+            android:inputType="textPersonName"
+            android:maxLines="1"
+            android:padding="0dp"
+            android:textColor="#263764"
+            android:textColorHint="#A0A0A0"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <!-- Campo de contraseña: solo visual -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="11dp"
+        android:background="@drawable/bg_login_field"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="13dp"
+        android:paddingEnd="13dp">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_lock" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="11dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:hint="@string/password_hint"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:padding="0dp"
+            android:textColor="#263764"
+            android:textColorHint="#A0A0A0"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_eye" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="58dp"
+        android:background="@drawable/bg_login_button"
+        android:text="@string/enter_button"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

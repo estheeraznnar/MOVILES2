@@ -1,3 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Pratica01-Esther</string>
+
+    <!-- APP -->
+    <string name="app_name">Practice 01</string>
+
+    <!-- LOGIN -->
+    <string name="login_image_description">Login image</string>
+    <string name="login_title">Welcome to App Iesch</string>
+    <string name="login_subtitle">Enter your name to continue</string>
+    <string name="name_hint">Login</string>
+    <string name="password_hint">Password</string>
+    <string name="enter_button">Login</string>
+    <string name="name_required">Enter your name to continue</string>
+
+    <!-- ORIGINAL HOME -->
+    <string name="profile_image_description">Profile image</string>
+    <string name="greeting">Hello, %1$s!</string>
+    <string name="home_subtitle">What would you like to do today?</string>
+
+    <!-- DASHBOARD -->
+    <string name="home_greeting_title">Good Morning</string>
+    <string name="user_greeting">Hi %1$s</string>
+
+    <string name="dog_age_button">Dog Age</string>
+    <string name="superheroes_button">SuperHeroes</string>
+    <string name="question_button">Quizzes</string>
+    <string name="settings_button">Settings</string>
+    <string name="favorite_button">Favorite</string>
+    <string name="logout_button">Log Out</string>
+
+    <!-- DISCOUNT BANNER -->
+    <string name="until_label">Until</string>
+    <string name="until_date">20 June - 30 July</string>
+    <string name="discount_label">Discount</string>
+    <string name="banner_description">Discount banner</string>
+
+    <!-- DOG AGE -->
+    <string name="canina_image_description">Dog image</string>
+    <string name="canina_question">How old are you?</string>
+    <string name="canina_hint">Enter your age</string>
+    <string name="canina_calculate">Calculate</string>
+    <string name="canina_invalid_age">Enter a valid age</string>
+    <string name="canina_result">If you were a dog, you would be %1$d years old</string>
+
+    <!-- SUPERHEROES -->
+    <string name="superheroes_title">Create superhero</string>
+    <string name="tap_photo_text">Tap the camera to take a photo</string>
+    <string name="hero_photo_description">Superhero photo</string>
+    <string name="hero_image_required">You must take a superhero photo</string>
+    <string name="hero_name_hint">Superhero name</string>
+    <string name="alter_ego_hint">Alter ego</string>
+    <string name="hero_bio_hint">Biography summary</string>
+    <string name="power_label">Power</string>
+    <string name="save_hero_button">Save superhero</string>
+    <string name="hero_name_required">Enter the superhero name</string>
+    <string name="alter_ego_label">Alter ego</string>
+    <string name="bio_label">Biography</string>
+    <string name="no_alter_ego">Not specified</string>
+    <string name="no_bio">Not specified</string>
+
 </resources>
