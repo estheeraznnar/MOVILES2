@@ -1,5 +1,6 @@
 
 
+import 'package:contador/presentation/screens/contador_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,13 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData.dark(
-            
-        ),
-        home: Scaffold(
-          body: Center(
-              child: Text('Hola a Dam 2')),
-        ),
+        home: ContadorScreen(),
     );
   }
 }
