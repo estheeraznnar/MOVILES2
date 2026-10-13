@@ -4,49 +4,38 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 
 class HomeActivity : AppCompatActivity() {
 
+    companion object {
+        const val EXTRA_USUARIO = "usuario"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        enableEdgeToEdge()
         setContentView(R.layout.activity_home)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
-        val tvUserName = findViewById<TextView>(R.id.tvUserName)
+        val usuario = intent.getStringExtra(EXTRA_USUARIO) ?: ""
+        findViewById<TextView>(R.id.tvSaludo).text = getString(R.string.saludo_usuario, usuario)
 
-        val cardDogAge = findViewById<View>(R.id.cardDogAge)
-        val cardSuperheroes = findViewById<View>(R.id.cardSuperheroes)
-        val cardQuestion = findViewById<View>(R.id.cardQuestion)
-        val cardSettings = findViewById<View>(R.id.cardSettings)
-        val cardFavorite = findViewById<View>(R.id.cardFavorite)
-        val cardLogout = findViewById<View>(R.id.cardLogout)
-
-        val userName = intent.getStringExtra("USER_NAME") ?: ""
-        tvUserName.text = getString(R.string.user_greeting, userName)
-
-        cardDogAge.setOnClickListener {
+        findViewById<View>(R.id.cardEdadCanina).setOnClickListener {
             startActivity(Intent(this, EdadCaninaActivity::class.java))
         }
-
-        cardSuperheroes.setOnClickListener {
+        findViewById<View>(R.id.cardSuperHeroes).setOnClickListener {
             startActivity(Intent(this, SuperHeroesActivity::class.java))
         }
-
-        cardQuestion.setOnClickListener {
-            Toast.makeText(this, R.string.question_button, Toast.LENGTH_SHORT).show()
-        }
-
-        cardSettings.setOnClickListener {
-            Toast.makeText(this, R.string.settings_button, Toast.LENGTH_SHORT).show()
-        }
-
-        cardFavorite.setOnClickListener {
-            Toast.makeText(this, R.string.favorite_button, Toast.LENGTH_SHORT).show()
-        }
-
-        cardLogout.setOnClickListener {
+        // Salir: cerramos el menú y volvemos a la pantalla de login
+        findViewById<View>(R.id.cardSalir).setOnClickListener {
             finish()
         }
     }

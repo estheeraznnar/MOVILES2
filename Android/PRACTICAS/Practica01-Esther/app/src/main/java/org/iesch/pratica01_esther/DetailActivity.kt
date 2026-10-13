@@ -1,50 +1,73 @@
 package org.iesch.pratica01_esther
 
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import org.iesch.pratica01_esther.databinding.ActivityDetailBinding
+import org.iesch.pratica01_esther.model.SuperHeroe
+
 
 class DetailActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityDetailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        binding = ActivityDetailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
-        setContentView(R.layout.activity_detail)
-
-        val imgHero = findViewById<ImageView>(R.id.imgDetailHero)
-        val tvName = findViewById<TextView>(R.id.tvDetailName)
-        val tvAlterEgo = findViewById<TextView>(R.id.tvDetailAlterEgo)
-        val tvBio = findViewById<TextView>(R.id.tvDetailBio)
-        val ratingPower = findViewById<RatingBar>(R.id.ratingDetailPower)
-
-        val name = intent.getStringExtra("HERO_NAME").orEmpty()
-        val alterEgo = intent.getStringExtra("ALTER_EGO").orEmpty()
-        val bio = intent.getStringExtra("HERO_BIO").orEmpty()
-        val power = intent.getFloatExtra("HERO_POWER", 0f)
-        val imagePath = intent.getStringExtra("HERO_IMAGE_PATH").orEmpty()
-
-        tvName.text = name
-
-        tvAlterEgo.text = if (alterEgo.isEmpty()) {
-            getString(R.string.no_alter_ego)
+        // 1 - Recibimos el Objeto SuperHeroe del Intent
+        val superHeroe = if ( android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU ){
+            // Para versiones SDK 33 o superiores
+            intent.getParcelableExtra("superHero", SuperHeroe::class.java)
         } else {
-            alterEgo
+            //Para versiones anteriores a la 33
+            intent.getParcelableExtra<SuperHeroe>("superHero")
         }
 
-        tvBio.text = if (bio.isEmpty()) {
-            getString(R.string.no_bio)
-        } else {
-            bio
-        }
+        // Ultimo paso: Recibimos los datos del Main Activity
+        val bundle = intent.extras!!
+        // val bitmap = bundle.getParcelable<Bitmap>("foto_heroe")
+        val bitmapDirectory = bundle.getString("path_heroe")
+        val bitmap = BitmapFactory.decodeFile(bitmapDirectory)
 
-        ratingPower.rating = power
+        // val superHeroName = bundle.getString("superHeroName") ?: "No hay nombre"
+        // val alterEgo = bundle.getString("alterEgo") ?: "No hay AlterEgo"
+        // val bio = bundle.getString("bio") ?: "No hay bio"
+        // val power = bundle.getFloat("power")
 
-        if (imagePath.isNotEmpty()) {
-            val bitmap = BitmapFactory.decodeFile(imagePath)
-            imgHero.setImageBitmap(bitmap)
-        }
+        // Rellenamos los campos conlos valores recibidos
+        binding.heroNameTv.text = superHeroe?.nombre ?: "No hay nombre"
+        binding.alterEgoResult.text = superHeroe?.alterEgo ?: "No hay AlterEgo"
+        binding.bioResult.text = superHeroe?.bio ?: "No hay bio"
+        binding.ratingResult.rating = superHeroe?.power ?: 0f
+
+        // Asigno la imagen a la imageView
+        binding.imagenHeroeDetail.setImageBitmap( bitmap )
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
