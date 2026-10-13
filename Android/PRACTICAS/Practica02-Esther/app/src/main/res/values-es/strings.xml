@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Practica 2</string>
+    <string name="hint_usuario">Login</string>
+    <string name="hint_contrasena">Password</string>
+    <string name="error_usuario_vacio">Introduce tu nombre de usuario</string>
+    <string name="saludo_usuario">Hola %1$s</string>
+    <string name="atras">Back</string>
+    <string name="pregunta_edad">How old are you?</string>
+    <string name="introduce_tu_edad">Your age</string>
+    <string name="calcular">Calculate</string>
+    <string name="resultado_texto">If you were a dog, you would be %d years old.</string>
+    <string name="texto_toast">You must to intert an age.</string>
+
+    <!--Quizz-->
+    <string name="quiz_titulo">Quizzes</string>
+    <string name="numero_preguta">%1$d / %2$d</string>
+    <string name="boton_enviar">ENVIAR →</string>
+    <string name="boton_siguiente">SIGUIENTE →</string>
+    <string name="empezar_de_nuevo">START AGAIN</string>
+    <string name="ninguna_respuesta_seleccionada">No has seleccionado ninguna respuesta</string>
+    <string name="respuesta_correcta">¡Acierto!</string>
+    <string name="respuesta_correcta_mensaje">Has elegido la respuesta correcta.</string>
+    <string name="respuesta_incorrecta">¡Fallo!</string>
+    <string name="respuesta_incorrecta_mensaje">Esa no es la respuesta correcta.</string>
+    <string name="final_quizz">¡Has finalizado el cuestionario! Has acertado %1$d de %2$d preguntas</string>
+    <!--Preguntas-->
+    <string name="preg1">¿Quién fundó Apple?</string>
+    <string name="preg2">¿Qué es Kotlin?</string>
+    <string name="res1">Un framework</string>
+    <string name="res2">Un sistema operativo</string>
+    <string name="res3">Un lenguaje de programación</string>
+    <string name="res4">Una base de datos</string>
+    <string name="preg3">¿Cuánto es 7 x 8?</string>
+    <string name="preg4">¿Qué es Git?</string>
+    <string name="res5">Un lenguaje de programación</string>
+    <string name="res6">Un sistema de control de versiones</string>
+    <string name="res7">Un sistema operativo</string>
+    <string name="res8">Un servidor web</string>
+    <string name="preg5">¿Cuál es el sistema operativo más usado en servidores?</string>
+</resources>

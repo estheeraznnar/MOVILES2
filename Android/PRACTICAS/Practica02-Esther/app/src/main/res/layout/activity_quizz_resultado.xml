@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".quizz.QuizzResultadoActivity">
+
+    <!-- Cabecera verde "Quizzes" -->
+    <TextView
+        android:id="@+id/segundaPagina"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/quiz_verde_oscuro"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:text="@string/quiz_titulo"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Círculo con ✓ o ✗ (el color se cambia desde el código) -->
+    <TextView
+        android:id="@+id/tvIcono"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/bg_quiz_circulo"
+        android:gravity="center"
+        android:textSize="64sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txResultado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/segundaPagina"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="✓" />
+
+    <!-- Right! / Fallo -->
+    <TextView
+        android:id="@+id/txResultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/quiz_texto"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txMensaje"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvIcono"
+        tools:text="Right!" />
+
+    <!-- Mensaje pequeño debajo -->
+    <TextView
+        android:id="@+id/txMensaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textColor="@color/quiz_gris"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/txFinal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txResultado"
+        tools:text="You have chosen the correct answer." />
+
+    <!-- Solo se ve en la última pregunta -->
+    <TextView
+        android:id="@+id/txFinal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_quiz_pregunta"
+        android:gravity="center"
+        android:padding="16dp"
+        android:textColor="@color/quiz_verde"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/btnSiguiente"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txMensaje"
+        tools:text="You have finished the quiz! You got 4 out of 5 questions correct"
+        tools:visibility="visible" />
+
+    <!-- Botón NEXT / START AGAIN -->
+    <Button
+        android:id="@+id/btnSiguiente"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/quiz_verde"
+        android:text="@string/boton_siguiente"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

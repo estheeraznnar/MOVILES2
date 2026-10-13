@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="verde">#295203</color>
+    <color name="amarillo">#FBC02D</color>
+    <color name="gris_oscuro">#393838</color>
+
+    <color name="quiz_verde_oscuro">#00695C</color>
+    <color name="quiz_verde">#00897B</color>
+    <color name="quiz_fondo">#F4F6F8</color>
+    <color name="quiz_pregunta_fondo">#EAF1F5</color>
+    <color name="quiz_texto">#1F2933</color>
+    <color name="quiz_gris">#6B7280</color>
+    <color name="quiz_gris_claro">#DDE3E8</color>
+    <color name="quiz_acierto">#43A047</color>
+    <color name="quiz_acierto_claro">#C8E6C9</color>
+    <color name="quiz_fallo">#E53935</color>
+    <color name="quiz_fallo_claro">#FFCDD2</color>
+</resources>

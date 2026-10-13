@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/quiz_fondo"
+    tools:context=".quizz.QuizzPrincipalActivity">
+
+    <!-- Cabecera verde "Quizzes" -->
+    <TextView
+        android:id="@+id/quizz"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/quiz_verde_oscuro"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:text="@string/quiz_titulo"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Número de pregunta: 1 / 5 -->
+    <TextView
+        android:id="@+id/txNumPreg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/quiz_verde"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quizz"
+        tools:text="1 / 5" />
+
+    <!-- Barra de progreso -->
+    <ProgressBar
+        android:id="@+id/progresoQuiz"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:progressBackgroundTint="@color/quiz_gris_claro"
+        android:progressTint="@color/quiz_verde"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txNumPreg"
+        tools:max="5"
+        tools:progress="1" />
+
+    <!-- Tarjeta con la pregunta -->
+    <TextView
+        android:id="@+id/txPregunta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_quiz_pregunta"
+        android:gravity="center"
+        android:padding="24dp"
+        android:textColor="@color/quiz_texto"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progresoQuiz"
+        tools:text="Who founded Apple?" />
+
+    <!-- Posibles respuestas -->
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/txPregunta"
+        app:layout_constraintStart_toStartOf="@+id/txPregunta"
+        app:layout_constraintTop_toBottomOf="@+id/txPregunta">
+
+        <RadioButton
+            android:id="@+id/rbOpcion1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_quiz_opcion"
+            android:buttonTint="@color/quiz_verde"
+            android:paddingStart="12dp"
+            android:textColor="@color/quiz_texto"
+            android:textSize="16sp"
+            tools:text="Option 1" />
+
+        <RadioButton
+            android:id="@+id/rbOpcion2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_quiz_opcion"
+            android:buttonTint="@color/quiz_verde"
+            android:paddingStart="12dp"
+            android:textColor="@color/quiz_texto"
+            android:textSize="16sp"
+            tools:text="Option 2" />
+
+        <RadioButton
+            android:id="@+id/rbOpcion3"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_quiz_opcion"
+            android:buttonTint="@color/quiz_verde"
+            android:paddingStart="12dp"
+            android:textColor="@color/quiz_texto"
+            android:textSize="16sp"
+            tools:text="Option 3" />
+
+        <RadioButton
+            android:id="@+id/rbOpcion4"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_quiz_opcion"
+            android:buttonTint="@color/quiz_verde"
+            android:paddingStart="12dp"
+            android:textColor="@color/quiz_texto"
+            android:textSize="16sp"
+            tools:text="Option 4" />
+    </RadioGroup>
+
+    <!-- Botón SEND abajo del todo -->
+    <Button
+        android:id="@+id/btnenviar"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/quiz_verde"
+        android:text="@string/boton_enviar"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
