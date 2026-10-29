@@ -7,6 +7,9 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //acceder a los parametros del tema
+    final colors = Theme.of(context).colorScheme;
+
     final menuOptions = <MenuOption>[
       MenuOption(
         ruta: "listview1",
@@ -28,13 +31,18 @@ class HomeScreen extends StatelessWidget {
         icon: Icons.credit_card,
         nombre: "Tarjetas - Card",
       ),
+      MenuOption(
+        ruta: "botones",
+        icon: Icons.radio_button_checked,
+        nombre: "Botones - Buttons",
+      ),
     ];
 
     return Scaffold(
       appBar: AppBar(title: Text('Componentes en Flutter')),
       body: ListView.separated(
         itemBuilder: (context, i) => ListTile(
-          leading: Icon(menuOptions[i].icon, color: AppTheme.halloweeen),
+          leading: Icon(menuOptions[i].icon, color: colors.primary),
           title: Text(menuOptions[i].nombre),
           onTap: () {
             /*final route = MaterialPageRoute(
@@ -44,7 +52,7 @@ class HomeScreen extends StatelessWidget {
 
             Navigator.pushNamed(context, menuOptions[i].ruta);
           },
-          trailing: Icon(Icons.arrow_forward_ios, color: AppTheme.halloweeen),
+          trailing: Icon(Icons.arrow_forward_ios, color: colors.tertiary),
         ),
         separatorBuilder: (_, __) => Divider(),
         itemCount: menuOptions.length,

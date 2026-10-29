@@ -2,35 +2,49 @@ import 'package:componentes/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class AlertScreen extends StatelessWidget {
+   
   const AlertScreen({super.key});
 
   void mostrarAlerta(BuildContext context){
-    showAdaptiveDialog(
+    showDialog(
       context: context, 
-      builder: AlertDialog(
-        title: Text('Titulo de la alerta'),
-      )
-    );
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Título de la Alerta'),
+          content: Column(
+            mainAxisSize: .min,
+            children: [
+              Text('Esto es el contenido de la alerta.'),
+              SizedBox( height: 20,),
+              FlutterLogo( size: 100,)
+            ],
+          ),
+        );
+      },);
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Alertas'), backgroundColor: Colors.redAccent),
+      appBar: AppBar(
+        title: Text('Alertas'),
+        //backgroundColor: Colors.red,
+        //elevation: 0,
+      ),
       body: Center(
-        child: ElevatedButton(
+         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: AppTheme.secondary,
-            shape: StadiumBorder(),
+            backgroundColor: AppTheme.primary,
+            shape: StadiumBorder()
           ),
           onPressed: () {
-            mostrarAlerta();
-          },
+            mostrarAlerta( context );
+          }, 
           child: Padding(
             padding: EdgeInsets.all(25),
             child: Text('Mostrar Alerta'),
-          ),
-        ),
+          )
+        )
       ),
     );
   }
