@@ -14,10 +14,15 @@ const listaColores = <Color>[
 
 class AppTheme {
   final int colorSeleccionado;
-  new({
-    this.colorSeleccionado = 0
-  }):assert(colorSeleccionado >=0, 'El color seleccionado debe ser mayor de 0'), 
-  assert(colorSeleccionado < listaColores.length, 'El color seleccionado debe ser igual o menor que ${listaColores.length}');
+  new({this.colorSeleccionado = 0})
+    : assert(
+        colorSeleccionado >= 0,
+        'El color seleccionado debe ser mayor de 0',
+      ),
+      assert(
+        colorSeleccionado < listaColores.length,
+        'El color seleccionado debe ser igual o menor que ${listaColores.length}',
+      );
 
   ThemeData getTheme() => ThemeData(
     useMaterial3: true,
@@ -47,15 +52,16 @@ class AppTheme {
 
     //scaffoldBackgroundColor: Colors.blueGrey
   );
-  
+
   ThemeData obtenerTema() => ThemeData(
     useMaterial3: true,
     colorSchemeSeed: listaColores[colorSeleccionado], //coge el color que se ha seleccionado y lo coloca en la app
 
-    appBarTheme: AppBarTheme( //el theme del app bar
+    appBarTheme: AppBarTheme(
+      //el theme del app bar
       centerTitle: true,
     ),
-    
-    iconTheme: IconThemeData(color: listaColores[colorSeleccionado])
+
+    iconTheme: IconThemeData(color: listaColores[colorSeleccionado]),
   );
 }

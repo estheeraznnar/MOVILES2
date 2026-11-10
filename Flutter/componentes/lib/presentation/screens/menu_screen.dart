@@ -36,6 +36,26 @@ class HomeScreen extends StatelessWidget {
         icon: Icons.radio_button_checked,
         nombre: "Botones - Buttons",
       ),
+      MenuOption(
+        ruta: "navegationbar",
+        icon: Icons.navigate_next,
+        nombre: "Navegation Bar",
+      ),
+      MenuOption(
+        ruta: "slider",
+        icon: Icons.slideshow_rounded,
+        nombre: "Slider and Cheer",
+      ),
+      MenuOption(
+        ruta: "snack",
+        icon: Icons.settings_backup_restore,
+        nombre: "Snackbar",
+      ),
+      MenuOption(
+        ruta: "animated",
+        icon: Icons.animation_outlined,
+        nombre: "Animated",
+      ),
     ];
 
     return Scaffold(

@@ -6,9 +6,7 @@ class NavegationBarScreen extends StatelessWidget {
     return MaterialApp(
       title: 'Navegation Bar',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: const _NavegationBarScreen(title: 'Navegation Bar'),
     );
   }
@@ -17,10 +15,7 @@ class NavegationBarScreen extends StatelessWidget {
 class _NavegationBarScreen extends StatefulWidget {
   final String title;
 
-  const _NavegationBarScreen({
-    Key? key,
-    required this.title,
-  }) : super(key: key);
+  const _NavegationBarScreen({Key? key, required this.title}) : super(key: key);
 
   @override
   State<_NavegationBarScreen> createState() => _NavegationBarScreenState();
@@ -32,25 +27,14 @@ class _NavegationBarScreenState extends State<_NavegationBarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      appBar: AppBar(title: Text(widget.title)),
       // NavigationBar Example
       bottomNavigationBar: NavigationBar(
         animationDuration: const Duration(milliseconds: 1000),
         destinations: const <Widget>[
-          NavigationDestination(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.explore),
-            label: 'Explore',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
+          NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
+          NavigationDestination(icon: Icon(Icons.explore), label: 'Explore'),
+          NavigationDestination(icon: Icon(Icons.person), label: 'Profile'),
           NavigationDestination(
             icon: Icon(Icons.settings_rounded),
             label: 'Settings',

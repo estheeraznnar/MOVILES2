@@ -1,3 +1,4 @@
+import 'package:componentes/presentation/screens/animated_screen.dart';
 import 'package:componentes/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -22,11 +23,14 @@ class MyApp extends StatelessWidget {
         "alert": (context) => AlertScreen(),
         "card": (context) => CardScreen(),
         "botones": (context) => ButtonsScreen(),
-        '/navegationbar': (context) => NavegationBarScreen()
+        'navegationbar': (context) => NavegationBarScreen(),
+        'slider': (context) => SliderScreen(),
+        'snack': (context) => SnackbarScreen(),
+        'animated': (context) => AnimatedScreen(),
       },
       onGenerateRoute: (settings) =>
           MaterialPageRoute(builder: (context) => HomeScreen()),
-      theme: AppTheme(colorSeleccionado: 5).getTheme(),
+      theme: AppTheme(colorSeleccionado: 7).getTheme(),
       //theme: AppTheme.lightTheme,
     );
   }

@@ -2,12 +2,11 @@ import 'package:componentes/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class AlertScreen extends StatelessWidget {
-   
   const AlertScreen({super.key});
 
-  void mostrarAlerta(BuildContext context){
+  void mostrarAlerta(BuildContext context) {
     showDialog(
-      context: context, 
+      context: context,
       builder: (context) {
         return AlertDialog(
           title: Text('Título de la Alerta'),
@@ -15,14 +14,29 @@ class AlertScreen extends StatelessWidget {
             mainAxisSize: .min,
             children: [
               Text('Esto es el contenido de la alerta.'),
-              SizedBox( height: 20,),
-              FlutterLogo( size: 100,)
+              SizedBox(height: 20),
+              FlutterLogo(size: 100),
             ],
           ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text(
+                'Cancelar',
+                style: TextStyle(color: Colors.redAccent),
+              ),
+            ),
+
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: Text('Ok', style: TextStyle(color: Colors.green)),
+            ),
+          ],
         );
-      },);
+      },
+    );
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,19 +46,19 @@ class AlertScreen extends StatelessWidget {
         //elevation: 0,
       ),
       body: Center(
-         child: ElevatedButton(
+        child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: AppTheme.primary,
-            shape: StadiumBorder()
+            shape: StadiumBorder(),
           ),
           onPressed: () {
-            mostrarAlerta( context );
-          }, 
+            mostrarAlerta(context);
+          },
           child: Padding(
             padding: EdgeInsets.all(25),
             child: Text('Mostrar Alerta'),
-          )
-        )
+          ),
+        ),
       ),
     );
   }

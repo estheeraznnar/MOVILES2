@@ -20,6 +20,7 @@ class CardTipo2 extends StatelessWidget {
             fit: BoxFit.cover,
             image: NetworkImage(
               'https://imanesdeviaje.com/wp-content/uploads/2013/12/Lagos-de-Plitvice_11.jpg',
+              
             ),
             placeholder: AssetImage('assets/jar-loading.gif'),
             width: double.infinity,
