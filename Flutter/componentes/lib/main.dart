@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
         "alert": (context) => AlertScreen(),
         "card": (context) => CardScreen(),
         "botones": (context) => ButtonsScreen(),
+        '/navegationbar': (context) => NavegationBarScreen()
       },
       onGenerateRoute: (settings) =>
           MaterialPageRoute(builder: (context) => HomeScreen()),

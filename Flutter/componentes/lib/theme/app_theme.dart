@@ -47,4 +47,15 @@ class AppTheme {
 
     //scaffoldBackgroundColor: Colors.blueGrey
   );
+  
+  ThemeData obtenerTema() => ThemeData(
+    useMaterial3: true,
+    colorSchemeSeed: listaColores[colorSeleccionado], //coge el color que se ha seleccionado y lo coloca en la app
+
+    appBarTheme: AppBarTheme( //el theme del app bar
+      centerTitle: true,
+    ),
+    
+    iconTheme: IconThemeData(color: listaColores[colorSeleccionado])
+  );
 }

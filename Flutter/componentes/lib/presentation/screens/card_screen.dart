@@ -11,7 +11,7 @@ class CardScreen extends StatelessWidget {
       appBar: AppBar(title: Text('Tarjetas - Card')),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        children: [CardTipo1(), CardTipo2()],
+        children: [CardTipo1()],
       ),
     );
   }
