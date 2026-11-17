@@ -29,6 +29,18 @@ class AppTheme {
     colorSchemeSeed: listaColores[colorSeleccionado],
     //Appbar
     appBarTheme: AppBarTheme(centerTitle: true),
+
+    //IMPUT DECORATION THEM
+    inputDecorationTheme: InputDecorationTheme(
+      floatingLabelStyle: TextStyle(color: listaColores[colorSeleccionado]),
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: listaColores[colorSeleccionado]),
+        borderRadius: .only(
+          bottomLeft: Radius.circular(10),
+          topRight: Radius.circular(10),
+        ),
+      ),
+    ),
   );
 
   // Color primario

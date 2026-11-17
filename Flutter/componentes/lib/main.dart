@@ -25,12 +25,13 @@ class MyApp extends StatelessWidget {
         "botones": (context) => ButtonsScreen(),
         'navegationbar': (context) => NavegationBarScreen(),
         'slider': (context) => SliderScreen(),
-        'snack': (context) => SnackbarScreen(),
+        'snack': (context) => SnackBarScreen(),
         'animated': (context) => AnimatedScreen(),
+        'formulario': (context) => FormularioScreen(),
       },
       onGenerateRoute: (settings) =>
           MaterialPageRoute(builder: (context) => HomeScreen()),
-      theme: AppTheme(colorSeleccionado: 7).getTheme(),
+      theme: AppTheme(colorSeleccionado: 2).getTheme(),
       //theme: AppTheme.lightTheme,
     );
   }

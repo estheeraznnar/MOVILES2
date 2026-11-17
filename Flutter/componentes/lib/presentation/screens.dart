@@ -1,3 +1,4 @@
+export 'package:componentes/presentation/screens/formulario_screen.dart';
 export 'package:componentes/presentation/screens/snackbar_screen.dart';
 export 'package:componentes/presentation/screens/animated_screen.dart';
 export 'package:componentes/presentation/screens/slider_screen.dart';
@@ -8,3 +9,4 @@ export 'package:componentes/presentation/screens/listview2_screen.dart';
 export 'package:componentes/presentation/screens/listview_screen.dart';
 export 'package:componentes/presentation/screens/menu_screen.dart';
 export 'package:componentes/presentation/screens/buttons_screen.dart';
+

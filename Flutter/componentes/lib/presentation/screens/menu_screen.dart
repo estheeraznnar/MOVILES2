@@ -56,6 +56,11 @@ class HomeScreen extends StatelessWidget {
         icon: Icons.animation_outlined,
         nombre: "Animated",
       ),
+      MenuOption(
+        ruta: "formulario",
+        icon: Icons.forum_rounded,
+        nombre: "formulario",
+      ),
     ];
 
     return Scaffold(
